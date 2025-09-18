@@ -1,30 +1,15 @@
-package entity;
+package DTOs;
 
 import enums.UbicacionMesa;
-import jakarta.persistence.*;
 
-@Entity
-@Table(name = "mesa")
-public class Mesa {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "mesa_id")
+public class MesaDTO {
     private Integer mesaId;
-    
-    @Column(name = "numero_mesa", nullable = false, unique = true, length = 10)
     private String numeroMesa;
-    
-    @Column(columnDefinition = "integer default 4")
-    private Integer capacidad = 4;
-    
-@Enumerated(EnumType.ORDINAL)
-    @Column(columnDefinition = "varchar default 'interior'")
-    private UbicacionMesa ubicacion = UbicacionMesa.interior;
-    
-    @Column(columnDefinition = "boolean default true")
-    private Boolean activa = true;
+    private Integer capacidad;
+    private UbicacionMesa ubicacion;
+    private Boolean activa;
 
-    public Mesa() {}
+    public MesaDTO() {}
 
     public Integer getMesaId() { return mesaId; }
     public void setMesaId(Integer mesaId) { this.mesaId = mesaId; }
@@ -37,3 +22,4 @@ public class Mesa {
     public Boolean getActiva() { return activa; }
     public void setActiva(Boolean activa) { this.activa = activa; }
 }
+

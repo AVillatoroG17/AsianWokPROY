@@ -6,6 +6,9 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import enums.EstadoOrden;
+import enums.TipoOrden;
+
 @Entity
 @Table(name = "orden")
 public class Orden {
@@ -32,7 +35,7 @@ public class Orden {
     @Column(name = "fecha_orden")
     private LocalDateTime fechaOrden;
     
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "tipo_orden", columnDefinition = "varchar default 'mesa'")
     private TipoOrden tipoOrden = TipoOrden.mesa;
     
